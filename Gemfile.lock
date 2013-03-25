@@ -30,9 +30,11 @@ GEM
       multi_json (~> 1.0)
     addressable (2.3.3)
     arel (3.0.2)
+    bcrypt-ruby (3.0.1)
     bootstrap-sass (2.3.1.0)
       sass (~> 3.2)
     builder (3.0.4)
+    cancan (1.6.9)
     cane (2.5.2)
       parallel
     capybara (2.0.2)
@@ -180,7 +182,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt-ruby (~> 3.0.0)
   bootstrap-sass (~> 2.3.1.0)
+  cancan
   cane
   capybara
   coffee-rails (~> 3.2.1)
