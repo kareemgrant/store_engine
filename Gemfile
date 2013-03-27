@@ -29,4 +29,5 @@ group :development, :test do
   gem 'reek'
   gem 'pry'
   gem 'heroku'
+  gem 'simplecov'
 end
