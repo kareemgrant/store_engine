@@ -49,7 +49,17 @@ describe "Category pages" do
         page.should have_link("Edit", href: edit_category_path(category))
       end
     end
+  end
 
+  describe "Viewing a specific category" do
+    let!(:category){ Category.create(name: "Beards")}
+    let!(:product){ Product.create(title: "Karl Marx beard", description: "It's Red!", price_in_dollars_and_cents: 20.05)}
+    let!(:product_category){ ProductCategory.create(product_id: (product.id), category_id: (category.id))}
+
+    it "has a list of related products" do
+      visit category_path(category)
+      page.should have_link("Karl Marx beard")
+    end
   end
 
   describe "When editing a category" do

@@ -29,4 +29,9 @@ describe Category do
       expect(category).to be_invalid
     end
   end
+
+  it "converts the object to a string representation" do
+    category = Category.create name: "Brogrammer"
+    expect(category.to_s).to eq "Brogrammer"
+  end
 end

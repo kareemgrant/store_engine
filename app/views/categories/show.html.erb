@@ -4,6 +4,11 @@
   <b>Name:</b>
   <%= @category.name %>
 </p>
+<p>See all associated products:<br/>
+  <% @category.products.each do |product| %>
+    <%= link_to product.title, product_path(product) %>
+  <% end %>
+</p>
 
 <%= link_to 'Edit', edit_category_path(@category) %> |
 <%= link_to 'Back', categories_path %>
