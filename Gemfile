@@ -7,6 +7,8 @@ gem 'pg'
 gem 'unicorn'
 gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'cancan'
+gem 'paperclip', '~> 3.0'
+gem 'simple_form'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -30,4 +32,11 @@ group :development, :test do
   gem 'pry'
   gem 'heroku'
   gem 'simplecov'
+end
+
+group :development do 
+  gem 'quiet_assets'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  # gem 'meta_request'
 end

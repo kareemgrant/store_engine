@@ -1,0 +1,17 @@
+<% if categories %>
+<div class='row-fluid'>
+
+  <div class='span12 nav-menus'>
+    <ul class='nav nav-pills'>
+      <li>
+        <a href='#'>All Products</a>
+      </li>
+      <% categories.each do |category| %>  
+        <li>
+        <a href='#'><%= category.name =%> </a>
+        </li>
+      <% end %> 
+    </ul>
+  </div>
+</div>
+<% end %>

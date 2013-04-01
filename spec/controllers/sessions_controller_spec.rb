@@ -18,12 +18,12 @@ describe SessionsController do
 
     shared_examples "a user that fails to login" do
       it "asks the user to login again" do
-        post :create, email: "breaking@bad.com"
+        post :create, session: { email: "breaking@bad.com" }
         expect(response).to render_template :new
       end
 
       it "does not set up the user session" do
-        post :create, email: "breaking@bad.com"
+        post :create, session: { email: "breaking@bad.com" }
         expect(session[:user_id]).to be_nil
       end
     end
@@ -42,12 +42,12 @@ describe SessionsController do
 
       context "when the user provides a correct password" do
         it "redirects to user to the root url" do
-          post :create, email: "breaking@bad.com", password: "meth"
+          post :create, session: { email: "breaking@bad.com", password: "meth" }
           expect(response).to redirect_to root_path
         end
 
         it "sets up the user session" do
-          post :create, email: "breaking@bad.com", password: "meth"
+          post :create, session: { email: "breaking@bad.com", password: "meth" }
           expect(session[:user_id]).to eq user.id
         end
       end

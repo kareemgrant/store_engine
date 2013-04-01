@@ -1,32 +1,18 @@
-<h1>Sign Up</h1>
+<div id="signup" >
+<div class='row-fluid'>
+  <div class='span6 offset3'>
+    <h2 class='text-center'>Create an Account</h2>
+    <%= link_to "Already registered? Log in here", login_path, :class => 'text-center' %> 
+      <%= simple_form_for @user, :html => { :class => 'bs-container' } do |f| %>
+        <%= f.error_notification %>
+        <%= f.input :full_name %>
+        <%= f.input :email %>
+        <%= f.input :password %>
+        <%= f.input :password_confirmation %>
+        <%= f.button :submit, :value => "Register", :class => "btn-primary"%>
+        <%= f.error :base %>
 
-<%= form_for @user do |f| %>
-  <% if @user.errors.any? %>
-    <div class="error_messages">
-      <h2>Form is invalid</h2>
-      <ul>
-        <% @user.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :full_name %><br />
-    <%= f.text_field :full_name %>
+      <% end %>
   </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password %>
-  </div>
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation %>
-  </div>
-  <div class="actions"><%= f.submit "Sign Up" %></div>
-<% end %>
+</div>
+</div>
