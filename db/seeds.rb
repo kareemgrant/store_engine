@@ -13,6 +13,7 @@ product4 = Product.create(title: "These Glasses Are Over",
 product5 = Product.create(title: "Wire Aviator Glasses",
                description: "Flying over the high seas with John Travolta? Look the part with our Wire Aviator Glasses.",
                price_in_dollars: 21.00, photo_file_name: "Sized5.png", photo_content_type: "image/png", photo_file_size: 13108, photo_updated_at: "2013-04-03 19:39:25")
+               price_in_dollars: 21.00)
 product6 = Product.create(title: "Professor Glasses",
                description: "Do you want to carry around books and look really important? Then these glasses are for you!",
                price_in_dollars: 30.00, photo_file_name: "Sized6.png", photo_content_type: "image/png", photo_file_size: 16346, photo_updated_at: "2013-04-03 19:39:46")
@@ -74,6 +75,7 @@ product25 = Product.create(title: "Cletus Mullet",
                description: "Going to a monster truck rally later? Look the part with the Cletus Mullet!",
                price_in_dollars: 400.00, photo_file_name: "Sized25.png", photo_content_type: "image/png", photo_file_size: 73249, photo_updated_at: "2013-04-03 19:53:57")
 
+
 # Order.create() #need 10
 category1 = Category.create(name: "Hats")
 category2 = Category.create(name: "Wigs")
@@ -85,13 +87,122 @@ category7 = Category.create(name: "Sideburns")
 category8 = Category.create(name: "Beards")
 category9 = Category.create(name: "Facial Hair")
 User.create(full_name: "Tony Stark", email: "admin@example.com", password: "password")
+
+cart1 = Cart.create
+line_item1 = LineItem.create(product_id: 1, cart_id: cart1.id)
+order1 = Order.create(total_price: line_item1.total_price,  user_id: 1)
+order1.line_items = []
+order1.line_items << line_item1
+
+cart2 = Cart.create
+line_item2 = LineItem.create(product_id: 2, cart_id: cart2.id)
+line_item3 = LineItem.create(product_id: 3, cart_id: cart2.id, quantity: 3)
+order2 = Order.create(total_price: (line_item2.total_price + line_item3.total_price),  user_id: 1)
+order2.line_items = []
+order2.line_items << line_item2
+order2.line_items << line_item3
+
+cart3 = Cart.create
+line_item4 = LineItem.create(product_id: 4, cart_id: cart3.id, quantity: 2)
+line_item5 = LineItem.create(product_id: 5, cart_id: cart3.id, quantity: 4)
+line_item6 = LineItem.create(product_id: 6, cart_id: cart3.id)
+order3 = Order.create(total_price: (line_item4.total_price + line_item5.total_price + line_item6.total_price),  user_id: 1)
+order3.line_items = []
+order3.line_items << line_item4
+order3.line_items << line_item5
+order3.line_items << line_item6
+
+cart4 = Cart.create
+line_item7 = LineItem.create(product_id: 7, cart_id: cart4.id, quantity: 2)
+line_item8 = LineItem.create(product_id: 8, cart_id: cart4.id, quantity: 2)
+line_item9 = LineItem.create(product_id: 9, cart_id: cart4.id, quantity: 2)
+order4 = Order.create(total_price: (line_item7.total_price + line_item8.total_price + line_item9.total_price),  user_id: 2)
+order4.line_items = []
+order4.line_items << line_item7
+order4.line_items << line_item8
+order4.line_items << line_item9
+
+cart5 = Cart.create
+line_item10 = LineItem.create(product_id: 10, cart_id: cart5.id)
+line_item11 = LineItem.create(product_id: 11, cart_id: cart5.id)
+order5 = Order.create(total_price: (line_item10.total_price + line_item11.total_price),  user_id: 2)
+order5.line_items = []
+order5.line_items << line_item10
+order5.line_items << line_item11
+
+cart6 = Cart.create
+line_item12 = LineItem.create(product_id: 12, cart_id: cart6.id)
+line_item13 = LineItem.create(product_id: 13, cart_id: cart6.id)
+order6 = Order.create(total_price: (line_item12.total_price + line_item13.total_price),  user_id: 2)
+order6.line_items = []
+order6.line_items << line_item12
+order6.line_items << line_item13
+
+cart7 = Cart.create
+line_item14 = LineItem.create(product_id: 14, cart_id: cart7.id)
+line_item15 = LineItem.create(product_id: 15, cart_id: cart7.id)
+line_item16 = LineItem.create(product_id: 16, cart_id: cart7.id)
+order7 = Order.create(total_price: (line_item14.total_price + line_item15.total_price + line_item16.total_price),  user_id: 3)
+order7.line_items = []
+order7.line_items << line_item14
+order7.line_items << line_item15
+order7.line_items << line_item16
+
+cart8 = Cart.create
+line_item17 = LineItem.create(product_id: 17, cart_id: cart8.id)
+line_item18 = LineItem.create(product_id: 18, cart_id: cart8.id)
+order8 = Order.create(total_price: (line_item17.total_price + line_item18.total_price),  user_id: 3)
+order8.line_items = []
+order8.line_items << line_item17
+order8.line_items << line_item18
+
+cart9 = Cart.create
+line_item19 = LineItem.create(product_id: 19, cart_id: cart9.id)
+line_item20 = LineItem.create(product_id: 20, cart_id: cart9.id)
+line_item21 = LineItem.create(product_id: 1, cart_id: cart9.id)
+order9 = Order.create(total_price: (line_item19.total_price + line_item20.total_price + line_item21.total_price),  user_id: 3)
+order9.line_items = []
+order9.line_items << line_item19
+order9.line_items << line_item20
+order9.line_items << line_item21
+
+cart10 = Cart.create
+line_item22 = LineItem.create(product_id: 2, cart_id: cart10.id, quantity: 2)
+line_item23 = LineItem.create(product_id: 3, cart_id: cart10.id)
+line_item24 = LineItem.create(product_id: 4, cart_id: cart10.id, quantity: 3)
+line_item25 = LineItem.create(product_id: 5, cart_id: cart10.id)
+line_item26 = LineItem.create(product_id: 6, cart_id: cart10.id, quantity: 5)
+line_item27 = LineItem.create(product_id: 7, cart_id: cart10.id)
+order10 = Order.create(total_price: (line_item22.total_price + line_item23.total_price + line_item24.total_price + line_item25.total_price + line_item26.total_price + line_item27.total_price),  user_id: 3)
+order10.line_items = []
+order10.line_items << line_item22
+order10.line_items << line_item23
+order10.line_items << line_item24
+order10.line_items << line_item25
+order10.line_items << line_item26
+order10.line_items << line_item27
+
+category1 = Category.create(name: "hats")
+category2 = Category.create(name: "wigs")
+category3 = Category.create(name: "glasses")
+category4 = Category.create(name: "mustaches")
+category5 = Category.create(name: "mouths (teeth and lips)")
+category6 = Category.create(name: "hair")
+category7 = Category.create(name: "sideburns")
+category8 = Category.create(name: "beards")
+category9 = Category.create(name: "facial hair")
+
 User.create(full_name: "Wolverine", email: "w@example.com", password: "password")
+
 User.create(full_name: "Franklin Webber", email: "demoXX+franklin@jumpstartlab.com",
             password: "password", password_confirmation: "password")
 User.create(full_name: "Jeff", email: "demoXX+jeff@jumpstartlab.com",
             password: "password", password_confirmation: "password", display_name: "j3")
 User.create(full_name: "Steve Klabnik", email: "demoXX+steve@jumpstartlab.com",
             password: "password", password_confirmation: "password", display_name: "SkrilleX")
+
+admin = User.create(full_name: "Tony Stark", email: "admin@example.com", password: "password")
+admin.admin = true
 
 ProductCategory.create(product_id: (product1.id), category_id: (category4.id))
 ProductCategory.create(product_id: (product1.id), category_id: (category6.id))
@@ -129,7 +240,6 @@ ProductCategory.create(product_id: (product19.id), category_id: (category9.id))
 ProductCategory.create(product_id: (product19.id), category_id: (category6.id))
 ProductCategory.create(product_id: (product20.id), category_id: (category7.id))
 ProductCategory.create(product_id: (product20.id), category_id: (category9.id))
-ProductCategory.create(product_id: (product20.id), category_id: (category6.id))
 ProductCategory.create(product_id: (product21.id), category_id: (category8.id))
 ProductCategory.create(product_id: (product21.id), category_id: (category9.id))
 ProductCategory.create(product_id: (product21.id), category_id: (category6.id))

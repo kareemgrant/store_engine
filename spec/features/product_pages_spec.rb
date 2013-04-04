@@ -26,14 +26,11 @@ describe "Product Pages" do
       visit products_path
     end
 
-    it "lists all products" do
-      expect( page ).to have_content "Mustache"
-      expect( page ).to have_content "Wig"
+    it "has links to the individual products" do
+      expect( page ).to have_link "Mustache"  
+      expect( page ).to have_link "Wig"
     end
-
   end
-
-
 
   describe "Adding a product to the cart" do
     let!(:product) {Product.create(title: "Mustache", description: "Hi", price_in_dollars: 34.99)}

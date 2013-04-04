@@ -21,22 +21,16 @@
           </tr>
         </thead>
         <tbody>
+          <% @orders.each do |order| %>
           <tr>
             <td>
-              <a href='#'>23345</a>
+              <%= link_to order.id, admin_order_path(order) %>
             </td>
-            <td>March 24, 2013</td>
-            <td>$32.17</td>
-            <td>Shipped</td>
+            <td><%= (order.created_at).to_date.strftime("%B %-d, %Y") %></td>
+            <td><%= number_to_currency(order.total_price) %></td>
+            <td><%= order.current_status %></td>
           </tr>
-          <tr>
-            <td>
-              <a href='#'>23345</a>
-            </td>
-            <td>March 24, 2013</td>
-            <td>$17.99</td>
-            <td>Pending</td>
-          </tr>
+          <% end %>
         </tbody>
 
       </table>

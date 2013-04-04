@@ -35,6 +35,10 @@ describe "Order pages" do
       it "displays the customer's order" do
         click_button("Add to Cart")
         click_button("Checkout")
+        fill_in "Street", with: "123 A"
+        fill_in "City", with: "yes"
+        fill_in "State", with: "DC"
+        fill_in "Zip", with: 44101
         expect{ click_button("Place Order") }.to change(Order, :count).by(1)
       end
     end

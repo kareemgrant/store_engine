@@ -1,17 +1,11 @@
-<%= form_for(@order) do |f| %>
-  <% if @order.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@order.errors.count, "error") %>
-      prohibited this order from being saved:</h2>
-    <ul>
-      <% @order.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-    </ul>
-  </div>
+<div>
+  <%= simple_form_for :address, :url => url_for(:action => 'create', :controller => 'orders'), :html => {:class => "bs-container"} do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :street %>
+  <%= f.input :city %>
+  <%= f.input :state %>
+  <%= f.input :zipcode %>
+  <%= f.button :submit, :value => "Place Order", :class => "btn-primary" %>
+  <%= f.error :base %>
   <% end %>
-  Address info will go here.
-  <div class="actions">
-    <%= f.submit "Place Order" %>
-  </div>
-<% end %>
+</div>

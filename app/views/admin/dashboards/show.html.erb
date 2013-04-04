@@ -8,7 +8,7 @@
   <div class='status-panel pull-left span12'>
     <div class='stat span2'>
       <h1 class='text-center' id='pending'>
-        7
+        <%= Order.find_all_by_status("pending").count %>
       </h1>
       <p class='text-center'>
         Pending
@@ -16,7 +16,7 @@
     </div>
     <div class='stat span2 pull-left'>
       <h1 class='text-center' id='shipped'>
-        14
+        <%= Order.find_all_by_status("shipped").count %>
       </h1>
       <p class='text-center'>
         Shipped
@@ -24,7 +24,7 @@
     </div>
     <div class='stat span3 pull-left'>
       <h1 class='text-center' id='paid'>
-        21
+        <%= Order.find_all_by_status("paid").count %>
       </h1>
       <p class='text-center'>
         Paid
@@ -32,7 +32,7 @@
     </div>
     <div class='stat span2 pull-left'>
       <h1 class='text-center' id='cancelled'>
-        4
+        <%= Order.find_all_by_status("cancelled").count %>
       </h1>
       <p class='text-center'>
         Cancelled
@@ -40,7 +40,7 @@
     </div>
     <div class='stat span2 pull-left'>
       <h1 class='text-center' id='returned'>
-        5
+        <%= Order.find_all_by_status("returned").count %>
       </h1>
       <p class='text-center'>
         Returned
@@ -62,28 +62,19 @@
         </tr>
       </thead>
       <tbody>
+        <% @orders.each do |order| %>
         <tr>
           <td>
-            <a href='#'>23345</a>
+            <%= link_to order.id, order_path(order) %>
           </td>
-          <td>March 24, 2013</td>
-          <td>$32.17</td>
-          <td>Shipped</td>
+          <td><%= (order.created_at).to_date.strftime("%B %-d, %Y") %></td>
+          <td><%= number_to_currency(order.total_price) %></td>
+          <td><%= order.status %></td>
           <td>
-            <a href='#'>Shipped</a>
+            <a href='#'>Shipped - hard code</a>
           </td>
         </tr>
-        <tr>
-          <td>
-            <a href='#'>23345</a>
-          </td>
-          <td>March 24, 2013</td>
-          <td>$17.99</td>
-          <td>Pending</td>
-          <td>
-            <a href='#'>Cancelled</a>
-          </td>
-        </tr>
+        <% end %>
       </tbody>
     </table>
   </div>

@@ -13,6 +13,7 @@
 
     <div class='container'>
       <%= render :partial => "shared/brand_header" %>
+      <br/>
       <%= render :partial => "shared/sub_menu", :locals => {:categories =>  @categories} %>
       <%= render :partial => "shared/flash_messages", :locals => {:flash => flash} %>
 

@@ -12,6 +12,8 @@ gem 'simple_form'
 gem 'font-awesome-rails'
 # gem 'aws-s3'
 gem 'aws-sdk'
+gem 'friendly_id'
+gem 'kaminari'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

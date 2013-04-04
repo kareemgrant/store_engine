@@ -1,4 +1,6 @@
-      <ul class='breadcrumb'>
+
+    <div class='row-fluid'>
+    <ul class='breadcrumb'>
         <li>
           <%= link_to "Home", "/" %>
           <span class='divider'>/</span>
@@ -7,6 +9,8 @@
           My Account
         </li>
       </ul>
+    </div>
+
       <div class='row-fluid'>
         <div class='tabbable'>
           <ul class='nav nav-tabs'>
@@ -41,10 +45,10 @@
             </div>
             <div class='status'>
               <p class='state'>
-                <%= @order.status %>
-                <% if @order.status != "pending" %>
+                <%= @order.current_status %>
+                <% if @order.current_status != "pending" %>
                 <span class='date'>
-                  <%= @order.updated_at %>
+                  <%= "on #{(@order.updated_at).to_date.strftime("%B %-d %Y")}" %>
                 </span>
                 <% end %>
               </p>

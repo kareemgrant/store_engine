@@ -23,10 +23,20 @@ class CategoriesController < ApplicationController
 #   end
 
   def show
-    @category = Category.find(params[:id])
+    @categories = Category.all
+    if params[:id].nil?
+      @products = Product.all
+    else
+      @category = Category.find(params[:id])
+      @products = @category.products
+    end
 
-    respond_to do |format|
-      format.html
+    if @category
+      respond_to do |format|
+        format.html
+      end
+    else
+      redirect_to products_path
     end
   end
 

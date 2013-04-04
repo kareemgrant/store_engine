@@ -75,11 +75,4 @@ describe "Category pages" do
   #   let!(:category){Category.create(name: "Capybara")}
 
   #   before { visit categories_path }
-    
-  #   it "successfully deletes the category" do
-  #     page.click_link(href: category_path(category)) 
-  #     page.should_not have_link("Delete", href: category_path(category))
-  #   end
-  # end
-  
 end
