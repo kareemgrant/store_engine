@@ -63,7 +63,7 @@
         <% @order.line_items.each do |line_item| %>
         <tr>
           <td>
-            <img class='img_cart' src='img/product14.png'>
+            <%= image_tag line_item.product.photo.url %>
           </td>
           <td class='description'>
             <span class='name'>
