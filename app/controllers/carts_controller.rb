@@ -21,6 +21,7 @@ class CartsController < ApplicationController
     @cart = current_cart
     @cart.decrease_quantity(params[:id])
     if @cart.line_items
-    redirect_to :back
+      redirect_to :back
+    end
   end
 end
