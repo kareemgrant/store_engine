@@ -1,6 +1,9 @@
+require 'resque/server'
+
 StoreEngine::Application.routes.draw do
 
 
+  mount Resque::Server, :at => "/resque"
 
   namespace :admin do
     resources :orders, :only => [:index, :show, :update]

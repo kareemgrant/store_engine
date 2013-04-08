@@ -16,7 +16,8 @@ gem 'kaminari'
 gem 'stripe'
 gem 'figaro'
 gem 'twilio-ruby'
-gem 'resque'
+gem 'resque', :require => 'resque/server'
+gem "mono_logger", "~> 1.0.0"
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

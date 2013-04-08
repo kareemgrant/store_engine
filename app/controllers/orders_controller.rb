@@ -24,7 +24,7 @@ class OrdersController < ApplicationController
     @order = Order.create_from_cart(current_cart, params[:order], current_user)
 
     if @order.id
-      UserMailer.order_confirmation_email(current_user).deliver
+      Resque.enqueue(OrderConfirmationMailer, current_user.id)
       current_cart.destroy
       session[:cart_id] = nil
       flash[:notice] = "Your payment was successfully submitted!"
