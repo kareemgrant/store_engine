@@ -16,6 +16,7 @@ gem 'kaminari'
 gem 'stripe'
 gem 'figaro'
 gem 'twilio-ruby'
+gem 'resque'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
