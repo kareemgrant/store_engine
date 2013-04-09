@@ -13,12 +13,12 @@ Order number: <%= @user.orders.last.id %>
 Your order has been recieved!
 </p>
 
-<%# <p> Here's a summary of your order: </p> %>
-<%# <ul> %>
-<%#   <% @user.orders.last.line_items.each do |li| %1> %>
-<%#     <li> li.product.title </li> %>
-<%#   <% end %1> %>
-<%# </ul> %>
-
+<p> Here's a summary of your order: </p>
+<ul>
+  <% @user.orders.last.line_items.each do |li| %>
+    <li><span><%= li.quantity %></span> * <span><%= li.product.title %></span> </li>
+  <% end %>
+</ul>
+<p> Order Total: <%= @user.orders.last.total_price %> </p>
 </body>
 </html>

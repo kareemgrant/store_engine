@@ -25,6 +25,7 @@ class OrdersController < ApplicationController
 
     if @order.id
       Resque.enqueue(OrderConfirmationMailer, current_user.id)
+
       current_cart.destroy
       session[:cart_id] = nil
       flash[:notice] = "Your payment was successfully submitted!"
