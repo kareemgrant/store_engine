@@ -36,7 +36,7 @@ StoreEngine::Application.routes.draw do
   resources :sessions
   resources :phone_numbers
 
-
+  match "/code" => redirect("https://github.com/kareemgrant/store_engine")
   root :to => 'store#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.
