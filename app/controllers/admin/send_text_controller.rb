@@ -2,7 +2,8 @@ class Admin::SendTextController < Admin::BaseController
   def index
   end
 
-  def send_text_message number_to_send_to = params[:number_to_send_to]
+  def send_text_message 
+    number_to_send_to = params[:number_to_send_to]
 
     twilio_sid = ENV["TWILIO_SID"]
     twilio_token = EVN["TWILIO_TOKEN"]
